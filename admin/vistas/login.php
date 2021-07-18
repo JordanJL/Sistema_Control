@@ -59,6 +59,6 @@
      <script src="../login/popper/popper.min.js"></script>     
      <script src="../login/plugins/sweetalert2/sweetalert2.all.min.js"></script>    
      <!--<script src="../login/codigo.js"></script>    -->
-     <script type="text/javascript" src="./scripts/login.js"></script>
+     <script type="text/javascript" src="scripts/login.js"></script>
     </body>
 </html>
