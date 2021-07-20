@@ -1,7 +1,7 @@
 <?php 
 //incluir la conexion de base de datos
 require "../config/Conexion.php";
-class Departamento{
+class AgendarCita{
 
 
 	//implementamos nuestro constructor
@@ -10,13 +10,15 @@ public function __construct(){
 }
 
 //metodo insertar regiustro
-public function insertar($nombre,$descripcion,$idusuario){
-		date_default_timezone_set('America/Mexico_City');
+public function insertar($idusuario,$titulo,$descripcion,$fechadesde,$fechahasta){
+	date_default_timezone_set('America/Mexico_City');
 	$fechacreada=date('Y-m-d H:i:s');
-	$sql="INSERT INTO departamento (nombre,descripcion,fechacreada,idusuario) VALUES ('$nombre','$descripcion','$fechacreada','$idusuario')";
+	$sql="INSERT INTO usuariostransacciones(idusuario,titulo,descripcion,fechadesde,fechahasta) ".
+          "VALUES ('$idusuario','$titulo','$descripcion','$fechadesde','$fechahasta')";
 	return ejecutarConsulta($sql);
+	
 }
-
+/*
 public function editar($iddepartamento,$nombre,$descripcion,$idusuario){
 	$sql="UPDATE departamento SET nombre='$nombre',descripcion='$descripcion',idusuario='$idusuario' 
 	WHERE iddepartamento='$iddepartamento'";
@@ -51,7 +53,7 @@ public function select(){
 public function regresaRolDepartamento($departamento){
 	$sql="SELECT nombre FROM departamento where iddepartamento='$departamento'";		
 	return ejecutarConsulta($sql);
-}
+}*/
 
 
 

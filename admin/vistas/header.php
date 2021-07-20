@@ -31,6 +31,7 @@ if (strlen(session_id())<1)
      <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-select.min.css">
 
 
+     
 
      <!-- fullCalendar -->
      <link rel="stylesheet" href="../public/css/main.css">
@@ -38,7 +39,9 @@ if (strlen(session_id())<1)
      <link rel="stylesheet" href="../plugins/fullcalendar/main.css">
 
      <!-- daterange picker -->
-     <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+     <!--<link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css"> -->
+     <link href="../plugins/Datetime/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
      <!-- fullCalendar -->
      <link rel="stylesheet" href="../plugins/moment/moment.min.js">
 
