@@ -37,9 +37,10 @@ if (strlen(session_id())<1)
      <!-- fullCalendar -->
      <link rel="stylesheet" href="../plugins/fullcalendar/main.css">
 
-
-
-
+     <!-- daterange picker -->
+     <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+     <!-- fullCalendar -->
+     <link rel="stylesheet" href="../plugins/moment/moment.min.js">
 
  </head>
 

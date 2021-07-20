@@ -20,11 +20,12 @@ require 'header.php';
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Departamento <button data-toggle="modal" data-target="#modal-default" class="btn btn-success" id="btnagregar" onclick=""><i
-                                    class="fa fa-plus-circle" ></i>Agregar</button></h1>
-                                    <button type="button" class="btn btn-default"data-toggle="modal" data-target="#modal-default" >
-                  Launch Default Modal
-                </button>
+                        <h1 class="box-title">Departamento <button data-toggle="modal" data-target="#modal-default"
+                                class="btn btn-success" id="btnagregar" onclick=""><i
+                                    class="fa fa-plus-circle"></i>Agregar</button></h1>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                            Launch Default Modal
+                        </button>
                     </div>
 
                     <!-- -------------------------------------------------------------------------------- -->
@@ -38,7 +39,7 @@ require 'header.php';
                                             <div class="card-body">
                                                 <!-- the events -->
 
-                                               <div id="calendar"></div>
+                                                <div id="calendar"></div>
                                             </div>
                                             <!-- /.card-body -->
                                         </div>
@@ -60,7 +61,56 @@ require 'header.php';
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>One fine body&hellip;</p>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Título</label>
+                                                <input type="text" class="form-control" placeholder="Título ...">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <!-- textarea -->
+                                            <div class="form-group">
+                                                <label>Descripción</label>
+                                                <textarea class="form-control" rows="3"
+                                                    placeholder="Descripción ..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Date and time:</label>
+                                                <div class="input-group date" id="reservationdatetime"
+                                                    data-target-input="nearest">
+                                                    <input type="text" class="form-control datetimepicker-input"
+                                                        data-target="#reservationdatetime" />
+                                                    <div class="input-group-append" data-target="#reservationdatetime"
+                                                        data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Date and time:</label>
+                                                <div class="input-group date" id="reservationdatetime"
+                                                    data-target-input="nearest">
+                                                    <input type="text" class="form-control datetimepicker-input"
+                                                        data-target="#reservationdatetime" />
+                                                    <div class="input-group-append" data-target="#reservationdatetime"
+                                                        data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

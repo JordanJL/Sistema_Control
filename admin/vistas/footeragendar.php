@@ -3,25 +3,46 @@
 </footer>
 
 <!-- jQuery -->
-<!--<script src="../plugins/jquery/jquery.min.js"></script>-->
-<script src="../public/js/jquery-3.1.1.min.js"></script>
+<!-- 
+<script src="../public/js/jquery-3.1.1.min.js"></script> -->
+<script src="../public/js/jquery.min.js"></script>
 
+<!-- jQuery UI -->
+<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!--<script src="../plugins/jquery/jquery.min.js"></script>-->
 <!-- Bootstrap 3.3.5 -->
 <script src="../public/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../public/js/app.min.js"></script>
 
-
-<!-- jQuery UI -->
-<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../plugins/dist/js/adminlte.min.js"></script>
 <!-- fullCalendar 2.2.5 -->
 <script src="../plugins/moment/moment.min.js"></script>
+
 <script src="../plugins/fullcalendar/main.js"></script>
 <!-- Page specific script -->
+
+<!-- date-range-picker -->
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+
+<script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+
+
+<script>
+$('#reservationdatetime').daterangepicker()
+
+    $('#reservationdatetime').datetimepicker({
+      useCurrent: false //Important! See issue #1075
+    });
+
+</script>
+
 <script>
 $(function() {
+
+
 
     /* initialize the external events
      -----------------------------------------------------------------*/
@@ -51,7 +72,6 @@ $(function() {
 
     var Calendar = FullCalendar.Calendar;
 
-    var checkbox = document.getElementById('drop-remove');
     var calendarEl = document.getElementById('calendar');
 
     // initialize the external events
@@ -120,12 +140,12 @@ $(function() {
             // $("#modal-default").modal();
         },
         eventClick: function(info) {
-    info.jsEvent.preventDefault(); // don't let the browser navigate
+            info.jsEvent.preventDefault(); // don't let the browser navigate
 
-    if (info.event.url) {
-      window.open(info.event.url);
-    }
-  }
+            if (info.event.url) {
+                window.open(info.event.url);
+            }
+        }
     });
 
     calendar.render();
@@ -168,5 +188,5 @@ $(function() {
         // Remove event from text input
         $('#new-event').val('')
     })
-})
+});
 </script>
