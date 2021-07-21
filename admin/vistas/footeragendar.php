@@ -31,7 +31,7 @@
 		startView: 2,
 		forceParse: 0,
         showMeridian: 1,
-        format: 'yyyy/mm/dd hh:mm'
+        format: 'yyyy/mm/dd hh:ii'
     });
     $('.form_datetimehasta').datetimepicker({
         language:  'es',
@@ -42,7 +42,7 @@
 		startView: 2,
 		forceParse: 0,
         showMeridian: 1,
-        format: 'yyyy/mm/dd hh:mm'
+        format: 'yyyy/mm/dd hh:ii'
     });
 
 </script>
