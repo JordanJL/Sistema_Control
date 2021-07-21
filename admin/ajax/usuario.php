@@ -14,6 +14,7 @@ $iddepartamento=isset($_POST["iddepartamento"])? limpiarCadena($_POST["iddeparta
 $idtipousuario=isset($_POST["idtipousuario"])? limpiarCadena($_POST["idtipousuario"]):"";
 $email=isset($_POST["email"])? limpiarCadena($_POST["email"]):"";
 $codigo_persona=isset($_POST["codigo_persona"])? limpiarCadena($_POST["codigo_persona"]):"";
+$tiempo_aprobado=isset($_POST["tiempo_aprobado"])? limpiarCadena($_POST["tiempo_aprobado"]):"";
 $password=isset($_POST["clave"])? limpiarCadena($_POST["clave"]):"";
 $imagen=isset($_POST["imagen"])? limpiarCadena($_POST["imagen"]):"";
 $usuariocreado=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
@@ -43,11 +44,11 @@ switch ($_GET["op"]) {
 
 		if (empty($idusuario)) {
 			$idusuario=$_SESSION["idusuario"];
-			$rspta=$usuario->insertar($nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$clavehash,$imagen,$usuariocreado,$codigo_persona);
+			$rspta=$usuario->insertar($nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$clavehash,$imagen,$usuariocreado,$codigo_persona,$tiempo_aprobado);
 			echo $rspta ? "Datos registrados correctamente" : "No se pudo registrar todos los datos del usuario";
 		}
 		else {
-			$rspta=$usuario->editar($idusuario,$nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$imagen,$usuariocreado,$codigo_persona);
+			$rspta=$usuario->editar($idusuario,$nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$imagen,$usuariocreado,$codigo_persona,$tiempo_aprobado);
 			echo $rspta ? "Datos actualizados correctamente" : "No se pudo actualizar los datos";
 		}
 	break;
@@ -95,7 +96,8 @@ switch ($_GET["op"]) {
 				"4"=>$reg->email,
 				"5"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px'>",
 				"6"=>$reg->fechacreado,
-				"7"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
+				"7"=>$reg->tiempo_aprobado ,
+				"8"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
 				);
 		}
 

@@ -34,6 +34,7 @@ require 'header.php';
       <th>Email</th>
       <th>Foto</th>
       <th>Fecha/Registro</th>
+      <th>Tiempo Aprobado</th>
       <th>Estado</th>
     </thead>
     <tbody>
@@ -46,6 +47,7 @@ require 'header.php';
       <th>Email</th>
       <th>Foto</th>
       <th>Fecha/Registro</th>
+      <th>Tiempo Aprobado</th>
       <th>Estado</th>
     </tfoot>   
   </table>
@@ -89,6 +91,11 @@ require 'header.php';
       <label for="">Clave de asistencia(*):</label>
       <button class="btn btn-info" type="button" onclick="generar(6);" >Generar</button>
       <input class="form-control" type="text" name="codigo_persona" id="codigo_persona" maxlength="64" placeholder="Clave">
+    </div>
+    
+    <div class="form-group col-lg-6 col-md-6 col-xs-12" >
+      <label for="">Tiempo Asignado:</label> 
+      <input class="form-control" type="number" name="tiempo_aprobado" id="tiempo_aprobado" maxlength="64" placeholder="tiempo min">
     </div>
     <div class="form-group col-lg-6 col-md-6 col-xs-12">
       <label for="">Imagen:</label>

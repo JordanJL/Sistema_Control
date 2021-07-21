@@ -1,80 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CC | Admin</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <head>
+        <link rel="shortcut icon" href="#" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>ADEINVI</title>
+
+        <link rel="stylesheet" href="../login/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../login/estilos.css">
+        <link rel="stylesheet" href="../login/plugins/sweetalert2/sweetalert2.min.css">        
+        
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../public/css/font-awesome.css">
-   
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../public/css/blue.css">
-    <link rel="shortcut icon" href="../public/img/favicon.ico">
-    <style>
-      #bodydiv2 {    width: 100%;
-      min-height: 100vh;
-      display: -webkit-flex;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-      background: -webkit-linear-gradient(to right, #00dbde, #fc00ff);
-      background: linear-gradient(to right, #00dbde, #fc00ff);
-      }
-  
-        </style>
-  </head>
-  <body class="hold-transition login-page"  id="bodydiv2">
+        
+    <link rel="stylesheet" href="../public/css/font-awesome.css">
+        <!--<link rel="stylesheet" type="text/css" href="../login/fuentes/iconic/css/material-design-iconic-font.min.css">-->
+        
+    </head>
+    
+    <body>
+      <div class="container-login">
+        <div class="wrap-login">
+            <form class="login-form validate-form" id="formLogin" action="" method="post">
+             
+              <div class="login-logo" style="text-align: center;font-size: 38px;"> 
+            <a href="login.php" style="color:black;"><b>ADEINVI</b> CB</a>
+                <div id="cont" style="width: 50%;left: 25%;position: relative;">
+                 <img src="../public/images/pngwing.png"  width="100%" >
+                 </div>
+                </div>
+                <div class="wrap-input100" data-validate = "Usuario incorrecto">
+                    <input class="input100" type="text" id="usuario" name="usuario" placeholder="Usuario">
+                    <span class="focus-efecto"></span>
+                </div>
+                <div class="wrap-input100" data-validate="Password incorrecto">
+                    <input class="input100" type="password" id="password" name="password" placeholder="Password">
+                    <span class="focus-efecto"></span>
+                </div>
+                
+                <div class="container-login-form-btn">
+                    <div class="wrap-login-form-btn">
+                        <div class="login-form-bgbtn"></div>
+                       <button type="submit" name="submit" class="login-form-btn">CONECTAR</button>
+                  
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>     
+        
 
-    <div class="login-box">
-      <div class="login-logo">
-       <a href="login.html"><b>CC</b> Admin</a>
-      </div><!-- /.login-logo -->
-      <div class="login-box-body" style="width: 400px;
-      background: #eceff1;
-      border-radius: 20px;
-      overflow: hidden;
-      padding: 77px 55px 53px 55px;
-      -webkit-box-shadow: 25px 40px 28px 0px rgb(0 0 0 / 38%);">
-        <p class="login-box-msg">Ingrese sus datos de Acceso</p>
-        <form method="post" id="frmAcceso">
-          <div class="form-group has-feedback">
-            <input type="text" id="logina" name="logina" class="form-control" placeholder="Usuario">
-            <span class="fa fa-user form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" id="clavea" name="clavea" class="form-control" placeholder="Password">
-            <span class="fa fa-key form-control-feedback"></span>
-          </div>
-          <div class="row">
-            <div class="col-xs-8">
-              
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat"> Ingresar</button>
-            </div><!-- /.col -->
-          </div>
-        </form>        
-
-      </div><!-- /.login-box-body -->
-    </div><!-- /.login-box -->
-
-    <!-- jQuery -->
-    <script src="../public/js/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="../public/js/bootstrap.min.js"></script>
-     <!-- Bootbox -->
-    <script src="../public/js/bootbox.min.js"></script>
-
-    <script type="text/javascript" src="scripts/login.js"></script>
-
-
-  </body>
-</html> 
+     
+ 
+        
+     <script src="../login/jquery/jquery-3.3.1.min.js"></script>    
+     <script src="../login/bootstrap/js/bootstrap.min.js"></script>    
+     <script src="../login/popper/popper.min.js"></script>     
+     <script src="../login/plugins/sweetalert2/sweetalert2.all.min.js"></script>    
+     <!--<script src="../login/codigo.js"></script>    -->
+     <script type="text/javascript" src="scripts/login.js"></script>
+    </body>
+</html>

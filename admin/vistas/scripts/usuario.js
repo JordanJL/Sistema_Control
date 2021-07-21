@@ -43,6 +43,7 @@ function limpiar(){
 	$("#login").val("");
 	$("#clave").val("");
 	$("#codigo_persona").val("");
+	$("#tiempo_asignado").val("");
 	$("#imagenmuestra").attr("src","");
 	$("#imagenactual").val("");
 	$("#idusuario").val("");
@@ -124,7 +125,7 @@ function guardaryeditar(e){
      	data: formData,
      	contentType: false,
      	processData: false,
-
+		cache: false,
      	success: function(datos){
      		bootbox.alert(datos);
      		mostrarform(false);
@@ -169,6 +170,7 @@ function mostrar(idusuario){
            }else{
 			$("#claves").hide();
 			}
+			
 			$("#nombre").val(data.nombre);
             $("#iddepartamento").val(data.iddepartamento);
             $("#iddepartamento").selectpicker('refresh');
@@ -178,6 +180,7 @@ function mostrar(idusuario){
             $("#email").val(data.email);
             $("#login").val(data.login);
             $("#codigo_persona").val(data.codigo_persona);
+            $("#tiempo_asignado").val(data.tiempo_aprobado);
             $("#imagenmuestra").show();
             $("#imagenmuestra").attr("src","../files/usuarios/"+data.imagen);
             $("#imagenactual").val(data.imagen);
