@@ -4,8 +4,7 @@ require_once "global.php";
 $conexion=new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 
 mysqli_query($conexion, 'SET NAMES "'.DB_ENCODE.'"');
-
-//muestra posible error en la conexion.
+ 
 if (mysqli_connect_errno()) {
 	printf("Ups parece que falló en la conexion con la base de datos: %s\n",mysqli_connect_error());
 	exit();
