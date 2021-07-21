@@ -18,6 +18,14 @@ public function insertar($idusuario,$titulo,$descripcion,$fechadesde,$fechahasta
 	return ejecutarConsulta($sql);
 	
 }
+
+public function mostrar($idusuario){
+	$sql="SELECT titulo,descripcion,fechadesde,fechahasta ".
+		 "FROM usuariostransacciones WHERE idusuario = ".$idusuario." AND DATEDIFF(NOW(),fechadesde) < (select datoInteger from variables where codigo='ClientesHistorialAgenda') ";
+	return ejecutarConsulta($sql);
+}
+
+
 /*
 public function editar($iddepartamento,$nombre,$descripcion,$idusuario){
 	$sql="UPDATE departamento SET nombre='$nombre',descripcion='$descripcion',idusuario='$idusuario' 
