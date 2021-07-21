@@ -1,64 +1,65 @@
 <footer class="main-footer">
 
 </footer>
-
 <!-- jQuery -->
-<!-- 
 <script src="../public/js/jquery-3.1.1.min.js"></script> -->
 <script src="../public/js/jquery.min.js"></script>
-
-<!-- jQuery UI -->
-<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
-
 <!--<script src="../plugins/jquery/jquery.min.js"></script>-->
 <!-- Bootstrap 3.3.5 -->
 <script src="../public/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../public/js/app.min.js"></script>
-
 <!-- AdminLTE App -->
 <script src="../plugins/dist/js/adminlte.min.js"></script>
 <!-- fullCalendar 2.2.5 -->
 <script src="../plugins/moment/moment.min.js"></script>
-
 <script src="../plugins/fullcalendar/main.js"></script>
 <!-- Page specific script -->
-
 <!-- date-range-picker -->
-<script src="../plugins/daterangepicker/daterangepicker.js"></script>
-
-<script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-
+<script src="../plugins/datetime/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="../plugins/datetime/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+<!-- jQuery UI -->
+<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
 
 <script>
-$('#reservationdatetime').daterangepicker()
-
-    $('#reservationdatetime').datetimepicker({
-      useCurrent: false //Important! See issue #1075
+    $('.form_datetimedesde').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1,
+        format: 'yyyy/mm/dd hh:ii'
+    });
+    $('.form_datetimehasta').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1,
+        format: 'yyyy/mm/dd hh:ii'
     });
 
 </script>
 
 <script>
 $(function() {
-
-
-
     /* initialize the external events
      -----------------------------------------------------------------*/
     function ini_events(ele) {
         ele.each(function() {
-
             // create an Event Object (https://fullcalendar.io/docs/event-object)
             // it doesn't need to have a start or end
             var eventObject = {
                 title: $.trim($(this).text()) // use the element's text as the event title
             }
-
             // store the Event Object in the DOM element so we can get to it later
             $(this).data('eventObject', eventObject)
-
-
         })
     }
 
@@ -125,10 +126,10 @@ $(function() {
                 borderColor: '#00a65a' //Success (green)
             },
             {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'https://www.google.com/',
+                title: 'PRUEBA',
+                start: '2021-07-19 20:00',
+                end: '2021-07-19 22:00',
+                url: '#',
                 backgroundColor: '#3c8dbc', //Primary (light-blue)
                 borderColor: '#3c8dbc' //Primary (light-blue)
             }
@@ -137,15 +138,14 @@ $(function() {
         droppable: false,
         dateClick: function(info) {
             $('#modal-default').modal('show');
-            // $("#modal-default").modal();
         },
-        eventClick: function(info) {
-            info.jsEvent.preventDefault(); // don't let the browser navigate
-
-            if (info.event.url) {
-                window.open(info.event.url);
-            }
+        eventClick:  function(event, jsEvent, view) {
+            alert(event.title);
+            $('#modalBody').html(event.description);
+            $('#eventUrl').attr('href',event.url);
+            $('#calendarModal').modal();
         }
+        
     });
 
     calendar.render();
@@ -154,39 +154,6 @@ $(function() {
     /* ADDING EVENTS */
     var currColor = '#3c8dbc' //Red by default
     // Color chooser button
-    $('#color-chooser > li > a').click(function(e) {
-        e.preventDefault()
-        // Save color
-        currColor = $(this).css('color')
-        // Add color effect to button
-        $('#add-new-event').css({
-            'background-color': currColor,
-            'border-color': currColor
-        })
-    })
-    $('#add-new-event').click(function(e) {
-        e.preventDefault()
-        // Get value and make sure it is not null
-        var val = $('#new-event').val()
-        if (val.length == 0) {
-            return
-        }
 
-        // Create events
-        var event = $('<div />')
-        event.css({
-            'background-color': currColor,
-            'border-color': currColor,
-            'color': '#fff'
-        }).addClass('external-event')
-        event.text(val)
-        $('#external-events').prepend(event)
-
-        // Add draggable funtionality
-        ini_events(event)
-
-        // Remove event from text input
-        $('#new-event').val('')
-    })
 });
 </script>
