@@ -208,11 +208,6 @@ if (strlen(session_id())<1)
                      </li>
                      <?php } ?>
 
-                     <li><a href="#"><i class="fa fa-question-circle"></i> <span>Ayuda</span><small
-                                 class="label pull-right bg-yellow">PDF</small></a></li>
-                     <li><a href="https://www.compartiendocodigos.net/"><i class="fa  fa-exclamation-circle"></i>
-                             <span>Acerca de</span><small class="label pull-right bg-yellow">ComCod</small></a></li>
-
                  </ul>
              </section>
              <!-- /.sidebar -->

@@ -43,7 +43,7 @@ function limpiar(){
 	$("#login").val("");
 	$("#clave").val("");
 	$("#codigo_persona").val("");
-	$("#tiempo_asignado").val("");
+	$("#tiempo_aprobado").val("");
 	$("#imagenmuestra").attr("src","");
 	$("#imagenactual").val("");
 	$("#idusuario").val("");
@@ -180,7 +180,7 @@ function mostrar(idusuario){
             $("#email").val(data.email);
             $("#login").val(data.login);
             $("#codigo_persona").val(data.codigo_persona);
-            $("#tiempo_asignado").val(data.tiempo_aprobado);
+            $("#tiempo_aprobado").val(data.tiempo_aprobado);
             $("#imagenmuestra").show();
             $("#imagenmuestra").attr("src","../files/usuarios/"+data.imagen);
             $("#imagenactual").val(data.imagen);

@@ -43,8 +43,9 @@ switch ($_GET["op"]) {
 		$clavehash=hash("SHA256", $password);
 
 		if (empty($idusuario)) {
-			$idusuario=$_SESSION["idusuario"];
+			$idusuario=$_SESSION["idusuario"]; 
 			$rspta=$usuario->insertar($nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$clavehash,$imagen,$usuariocreado,$codigo_persona,$tiempo_aprobado);
+			
 			echo $rspta ? "Datos registrados correctamente" : "No se pudo registrar todos los datos del usuario";
 		}
 		else {
@@ -96,7 +97,7 @@ switch ($_GET["op"]) {
 				"4"=>$reg->email,
 				"5"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px'>",
 				"6"=>$reg->fechacreado,
-				"7"=>$reg->tiempo_aprobado ,
+				"7"=>$reg->tiempo_aprobado,
 				"8"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
 				);
 		}
