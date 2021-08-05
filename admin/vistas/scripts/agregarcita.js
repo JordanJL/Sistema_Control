@@ -37,7 +37,6 @@ function GuardarCita(){
       url: '../ajax/agendarcita.php',
       data: { 
         key: 'GuardarCita',
-        titulo: document.getElementById('titulo').value,
         descripcion: document.getElementById('descripcion').value,
         fechadesde: document.getElementById('fechadesde').value,
         fechahasta: document.getElementById('fechahasta').value
@@ -46,7 +45,11 @@ function GuardarCita(){
     }).done(function( datos ) {
      // $("#tablaTareas tbody").empty;
      alert(datos);
-     console.error(document.getElementById('fechadesde').value);
+     document.getElementById("descripcion").value = "";
+     document.getElementById("fechahasta").value = "";
+     document.getElementById("fechadesde").value = "";
+     $('#modal-default').modal('hide');
+     //console.error(document.getElementById('fechadesde').value);
       //$("#tablaTareas tbody").html(datos);
     }).fail(function (jqXHR, textStatus, errorThrow){
       alert("Error al ingresar");

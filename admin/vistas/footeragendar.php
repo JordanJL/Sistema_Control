@@ -120,7 +120,8 @@ $(function() {
                 $data = Array();
                 while ($reg = $rspta -> fetch_object()) {
                     $linea = "{".
-                    "title: '".$reg->titulo."',".
+                    "id:'".$reg->id."',".
+                    "title: '".$reg->descripcion."',".
                     "start: '".$reg->fechadesde."',".
                     "end: '".$reg->fechahasta."',".
                     "backgroundColor: '#f39c12',".
@@ -138,12 +139,15 @@ $(function() {
                 // if so, remove the element from the "Draggable Events" list
                 info.draggedEl.parentNode.removeChild(info.draggedEl);
             }
+        },
+        eventClick: function(info) {
+            traerDetalle(info.event.id);
         }
     });
-
+    calendar.setOption('locale', 'es');
     calendar.render();
     // $('#calendar').fullCalendar()
-    calendar.setOption('locale', 'es');
+    
     /* ADDING EVENTS */
     var currColor = '#61c396' //Red by default
     // Color chooser button
@@ -182,4 +186,30 @@ $(function() {
         $('#new-event').val('')
     })
 })
+
+function traerDetalle(id){
+    $.ajax({
+      type: 'POST',
+      url: '../ajax/agendarcita.php',
+      data: { 
+        key: 'VerDetalle',
+        id: id
+      }
+      
+    }).done(function( datos ) {
+        var mydata = JSON.parse(datos);
+        document.getElementById("Modaldescripcion").value = mydata.descripcion;
+        document.getElementById("Modalfechahasta").value = mydata.fechahasta;
+        document.getElementById("Modalfechadesde").value = mydata.fechadesde;
+        document.getElementById("ModalAsistente").value = mydata.Asistente;  
+        document.getElementById("ModalHoras").value = mydata.Horas;
+        
+        $('#modal-verdetalle').modal('show');
+    }).fail(function (jqXHR, textStatus, errorThrow){
+      alert("Error al ingresar");
+    }); 
+
+    
+  }
+
 </script>

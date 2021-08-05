@@ -10,21 +10,27 @@ public function __construct(){
 }
 
 //metodo insertar regiustro
-public function insertar($idusuario,$titulo,$descripcion,$fechadesde,$fechahasta){
+public function insertar($idusuario,$descripcion,$fechadesde,$fechahasta){
 	date_default_timezone_set('America/Mexico_City');
 	$fechacreada=date('Y-m-d H:i:s');
-	$sql="INSERT INTO usuariostransacciones(idusuario,titulo,descripcion,fechadesde,fechahasta) ".
-          "VALUES ('$idusuario','$titulo','$descripcion','$fechadesde','$fechahasta')";
+	$sql="INSERT INTO usuariostransacciones(idusuario,descripcion,fechadesde,fechahasta) ".
+          "VALUES ('$idusuario','$descripcion','$fechadesde','$fechahasta')";
 	return ejecutarConsulta($sql);
 	
 }
 
 public function mostrar($idusuario){
-	$sql="SELECT titulo,descripcion,fechadesde,fechahasta ".
+	$sql="SELECT id,descripcion,fechadesde,fechahasta ".
 		 "FROM usuariostransacciones WHERE idusuario = ".$idusuario." AND DATEDIFF(NOW(),fechadesde) < (select datoInteger from variables where codigo='ClientesHistorialAgenda') ";
 	return ejecutarConsulta($sql);
 }
 
+public function mostrardatosID($id){
+	$sql="SELECT a.id,a.descripcion,a.fechadesde,a.fechahasta, case when isnull(a.idAsistenteAsignado) then 'No Asignado' else concat(b.nombre,' ',b.apellidos) end as Asistente, a.horasregistro as Horas ".
+		 "FROM usuariostransacciones a left join usuarios b on (a.idAsistenteAsignado = b.idusuario) WHERE id = ".$id." ";
+	//return $sql;
+		 return ejecutarConsultaSimpleFila($sql);
+}
 
 /*
 public function editar($iddepartamento,$nombre,$descripcion,$idusuario){
@@ -66,5 +72,3 @@ public function regresaRolDepartamento($departamento){
 
 
 }
-
- ?>
