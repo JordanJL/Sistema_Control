@@ -1165,13 +1165,13 @@
 }
 
 .direct-chat-lightblue .right > .direct-chat-text {
-  background-color: #3c8dbc;
-  border-color: #3c8dbc;
+  background-color: #61c396;
+  border-color: #61c396;
   color: #fff;
 }
 
 .direct-chat-lightblue .right > .direct-chat-text::after, .direct-chat-lightblue .right > .direct-chat-text::before {
-  border-left-color: #3c8dbc;
+  border-left-color: #61c396;
 }
 
 .direct-chat-navy .right > .direct-chat-text {

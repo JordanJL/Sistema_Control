@@ -145,7 +145,7 @@ $(function() {
     // $('#calendar').fullCalendar()
     calendar.setOption('locale', 'es');
     /* ADDING EVENTS */
-    var currColor = '#3c8dbc' //Red by default
+    var currColor = '#61c396' //Red by default
     // Color chooser button
     $('#color-chooser > li > a').click(function(e) {
         e.preventDefault()

@@ -60,14 +60,14 @@ if (strlen(session_id())<1)
 
          <header class="main-header">
              <!-- Logo -->
-             <a href="escritorio.php" class="logo">
+             <a href="escritorio.php" class="logo" style="background-color: #1dc58b;">
                  <!-- mini logo for sidebar mini 50x50 pixels -->
                  <span class="logo-mini"><b>CC</b> A</span>
                  <!-- logo for regular state and mobile devices -->
-                 <span class="logo-lg"><b>CC</b> ADMIN</span>
+                 <span class="logo-lg"><b>ADEINVI</b> CB</span>
              </a>
              <!-- Header Navbar: style can be found in header.less -->
-             <nav class="navbar navbar-static-top">
+             <nav class="navbar navbar-static-top" style="background-color: #1dc58b;">
                  <!-- Sidebar toggle button-->
                  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                      <span class="sr-only">Navegación</span>
@@ -158,13 +158,13 @@ if (strlen(session_id())<1)
                              </span>
                          </a>
                          <ul class="treeview-menu">
-                             <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                             <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li> 
                              <li><a href="tipousuario.php"><i class="fa fa-circle-o"></i> Tipo Usuario</a></li>
-                             <li><a href="departamento.php"><i class="fa fa-circle-o"></i> Departamento</a></li>
+                          <!--  <li><a href="departamento.php"><i class="fa fa-circle-o"></i> Departamento</a></li>-->
                          </ul>
                      </li>
 
-                     <li class="treeview">
+                        <!-- <li class="treeview">
                          <a href="#">
                              <i class="fa fa-folder"></i> <span>Departamento</span>
                              <span class="pull-right-container">
@@ -174,7 +174,7 @@ if (strlen(session_id())<1)
                          <ul class="treeview-menu">
                              <li><a href="departamento.php"><i class="fa fa-circle-o"></i> Departamento</a></li>
                          </ul>
-                     </li>
+                     </li>-->
 
                      <li class="treeview">
                          <a href="#">

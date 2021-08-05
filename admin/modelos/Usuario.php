@@ -49,7 +49,7 @@ public function mostrar($idusuario){
 
 //listar registros
 public function listar(){
-	$sql="SELECT * FROM usuarios WHERE idtipousuario IN (1,3)";
+	$sql="SELECT * FROM usuarios ORDER BY idtipousuario ";
 	return ejecutarConsulta($sql);
 }
 

@@ -20,7 +20,7 @@ require 'header.php';
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">CALENDARIZACIÓN DE CITAS <button data-toggle="modal"
+                        <h1 class="box-title">CALENDARIZACIÓN <br><br><button data-toggle="modal"
                                 data-target="#modal-default" class="btn btn-success" id="btnagregar" onclick=""><i
                                     class="fa fa-plus-circle"></i>Agregar</button></h1>
                     </div>

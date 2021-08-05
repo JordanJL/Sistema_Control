@@ -13610,13 +13610,13 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .sidebar-dark-lightblue .nav-sidebar > .nav-item > .nav-link.active,
 .sidebar-light-lightblue .nav-sidebar > .nav-item > .nav-link.active {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   color: #fff;
 }
 
 .sidebar-dark-lightblue .nav-sidebar.nav-legacy > .nav-item > .nav-link.active,
 .sidebar-light-lightblue .nav-sidebar.nav-legacy > .nav-item > .nav-link.active {
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .sidebar-dark-navy .nav-sidebar > .nav-item > .nav-link.active,
@@ -16780,7 +16780,7 @@ body.text-sm .control-sidebar {
 }
 
 .navbar-lightblue {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   color: #fff;
 }
 
@@ -22438,7 +22438,7 @@ blockquote.quote-dark h6 {
 }
 
 blockquote.quote-lightblue {
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 blockquote.quote-lightblue h1,
@@ -22447,7 +22447,7 @@ blockquote.quote-lightblue h3,
 blockquote.quote-lightblue h4,
 blockquote.quote-lightblue h5,
 blockquote.quote-lightblue h6 {
-  color: #3c8dbc;
+  color: #61c396;
 }
 
 blockquote.quote-navy {
@@ -22830,7 +22830,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .dark-mode blockquote.quote-lightblue {
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .dark-mode blockquote.quote-lightblue h1,
@@ -22839,7 +22839,7 @@ blockquote.quote-gray-dark h6 {
 .dark-mode blockquote.quote-lightblue h4,
 .dark-mode blockquote.quote-lightblue h5,
 .dark-mode blockquote.quote-lightblue h6 {
-  color: #3c8dbc;
+  color: #61c396;
 }
 
 .dark-mode blockquote.quote-navy {
@@ -23153,7 +23153,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .text-lightblue {
-  color: #3c8dbc !important;
+  color: #61c396 !important;
 }
 
 .text-navy {
@@ -23493,7 +23493,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-lightblue {
-  background-color: #3c8dbc !important;
+  background-color: #61c396 !important;
 }
 
 .bg-lightblue,
@@ -24069,7 +24069,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-gradient-lightblue {
-  background: #3c8dbc linear-gradient(180deg, #599ec6, #3c8dbc) repeat-x !important;
+  background: #61c396 linear-gradient(180deg, #599ec6, #61c396) repeat-x !important;
   color: #fff;
 }
 
@@ -24079,13 +24079,13 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-gradient-lightblue.btn:hover {
-  background: #3c8dbc linear-gradient(180deg, #518cad, #33779f) repeat-x !important;
+  background: #61c396 linear-gradient(180deg, #518cad, #33779f) repeat-x !important;
   border-color: #307095;
   color: #ececec;
 }
 
 .bg-gradient-lightblue.btn:not(:disabled):not(.disabled):active, .bg-gradient-lightblue.btn:not(:disabled):not(.disabled).active, .bg-gradient-lightblue.btn:active, .bg-gradient-lightblue.btn.active {
-  background: #3c8dbc linear-gradient(180deg, #4f85a5, #307095) repeat-x !important;
+  background: #61c396 linear-gradient(180deg, #4f85a5, #307095) repeat-x !important;
   border-color: #2d698c;
   color: #fff;
 }
@@ -25081,7 +25081,7 @@ a.text-muted:hover {
 .accent-lightblue .btn-link,
 .accent-lightblue a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link):not(.page-link):not(.btn),
 .accent-lightblue .nav-tabs .nav-link {
-  color: #3c8dbc;
+  color: #61c396;
 }
 
 .accent-lightblue .btn-link:hover,
@@ -25091,12 +25091,12 @@ a.text-muted:hover {
 }
 
 .accent-lightblue .dropdown-item:active, .accent-lightblue .dropdown-item.active {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   color: #fff;
 }
 
 .accent-lightblue .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   border-color: #23536f;
 }
 
@@ -25112,13 +25112,13 @@ a.text-muted:hover {
 }
 
 .accent-lightblue .page-item .page-link {
-  color: #3c8dbc;
+  color: #61c396;
 }
 
 .accent-lightblue .page-item.active a,
 .accent-lightblue .page-item.active .page-link {
-  background-color: #3c8dbc;
-  border-color: #3c8dbc;
+  background-color: #61c396;
+  border-color: #61c396;
   color: #fff;
 }
 
@@ -28224,7 +28224,7 @@ a.text-muted:hover {
 
 .dark-mode .accent-lightblue .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #86bad8;
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .dark-mode .accent-lightblue .custom-control-input:checked ~ .custom-control-label::after {

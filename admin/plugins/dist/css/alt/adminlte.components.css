@@ -655,7 +655,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-switch.custom-switch-off-lightblue .custom-control-input ~ .custom-control-label::before {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   border-color: #23536f;
 }
 
@@ -668,7 +668,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-switch.custom-switch-on-lightblue .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   border-color: #23536f;
 }
 
@@ -1485,7 +1485,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-lightblue::-webkit-slider-thumb {
-  background-color: #3c8dbc;
+  background-color: #61c396;
 }
 
 .custom-range.custom-range-lightblue::-webkit-slider-thumb:active {
@@ -1493,7 +1493,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-lightblue::-moz-range-thumb {
-  background-color: #3c8dbc;
+  background-color: #61c396;
 }
 
 .custom-range.custom-range-lightblue::-moz-range-thumb:active {
@@ -1501,7 +1501,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-lightblue::-ms-thumb {
-  background-color: #3c8dbc;
+  background-color: #61c396;
 }
 
 .custom-range.custom-range-lightblue::-ms-thumb:active {
@@ -2437,16 +2437,16 @@ body.text-sm .input-group-text {
 }
 
 .custom-control-input-lightblue:checked ~ .custom-control-label::before {
-  border-color: #3c8dbc;
-  background-color: #3c8dbc;
+  border-color: #61c396;
+  background-color: #61c396;
 }
 
 .custom-control-input-lightblue.custom-control-input-outline:checked[type="checkbox"] ~ .custom-control-label::after {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%233c8dbc' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%2361c396' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") !important;
 }
 
 .custom-control-input-lightblue.custom-control-input-outline:checked[type="radio"] ~ .custom-control-label::after {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%233c8dbc'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%2361c396'/%3E%3C/svg%3E") !important;
 }
 
 .custom-control-input-lightblue:focus ~ .custom-control-label::before {
@@ -4297,7 +4297,7 @@ body.text-sm .input-group-text {
 
 .dark-mode .custom-switch.custom-switch-off-lightblue .custom-control-input ~ .custom-control-label::before {
   background-color: #86bad8;
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .dark-mode .custom-switch.custom-switch-off-lightblue .custom-control-input:focus ~ .custom-control-label::before {
@@ -4310,7 +4310,7 @@ body.text-sm .input-group-text {
 
 .dark-mode .custom-switch.custom-switch-on-lightblue .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #86bad8;
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .dark-mode .custom-switch.custom-switch-on-lightblue .custom-control-input:checked:focus ~ .custom-control-label::before {
@@ -6115,7 +6115,7 @@ body.text-sm .input-group-text {
 }
 
 .card-lightblue:not(.card-outline) > .card-header {
-  background-color: #3c8dbc;
+  background-color: #61c396;
 }
 
 .card-lightblue:not(.card-outline) > .card-header,
@@ -6128,7 +6128,7 @@ body.text-sm .input-group-text {
 }
 
 .card-lightblue.card-outline {
-  border-top: 3px solid #3c8dbc;
+  border-top: 3px solid #61c396;
 }
 
 .card-lightblue.card-outline-tabs > .card-header a:hover {
@@ -6136,7 +6136,7 @@ body.text-sm .input-group-text {
 }
 
 .card-lightblue.card-outline-tabs > .card-header a.active {
-  border-top: 3px solid #3c8dbc;
+  border-top: 3px solid #61c396;
 }
 
 .bg-lightblue > .card-header .btn-tool,
@@ -7868,7 +7868,7 @@ html.maximized-card {
 }
 
 .todo-list .lightblue {
-  border-left-color: #3c8dbc;
+  border-left-color: #61c396;
 }
 
 .todo-list .navy {

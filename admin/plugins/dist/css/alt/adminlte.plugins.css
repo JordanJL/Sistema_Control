@@ -1073,7 +1073,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 
 .select2-container--default .select2-lightblue .select2-results__option--highlighted,
 .select2-lightblue .select2-container--default .select2-results__option--highlighted {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   color: #fff;
 }
 
@@ -1091,7 +1091,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 
 .select2-container--default .select2-lightblue .select2-selection--multiple .select2-selection__choice,
 .select2-lightblue .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background-color: #3c8dbc;
+  background-color: #61c396;
   border-color: #367fa9;
   color: #fff;
 }
@@ -3766,7 +3766,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .slider-lightblue .slider .slider-selection {
-  background: #3c8dbc;
+  background: #61c396;
 }
 
 .slider-navy .slider .slider-selection {
@@ -4084,18 +4084,18 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 
 .icheck-lightblue > input:first-child:not(:checked):not(:disabled):hover + label::before,
 .icheck-lightblue > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .icheck-lightblue > input:first-child:not(:checked):not(:disabled):focus + label::before,
 .icheck-lightblue > input:first-child:not(:checked):not(:disabled):focus + input[type="hidden"] + label::before {
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .icheck-lightblue > input:first-child:checked + label::before,
 .icheck-lightblue > input:first-child:checked + input[type="hidden"] + label::before {
-  background-color: #3c8dbc;
-  border-color: #3c8dbc;
+  background-color: #61c396;
+  border-color: #61c396;
 }
 
 .icheck-navy > input:first-child:not(:checked):not(:disabled):hover + label::before,
@@ -6048,7 +6048,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-lightblue .pace .pace-progress {
-  background: #3c8dbc;
+  background: #61c396;
 }
 
 .pace-barber-shop-lightblue .pace {
@@ -6056,7 +6056,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-barber-shop-lightblue .pace .pace-progress {
-  background: #3c8dbc;
+  background: #61c396;
 }
 
 .pace-barber-shop-lightblue .pace .pace-activity {
@@ -6068,7 +6068,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-bounce-lightblue .pace .pace-activity {
-  background: #3c8dbc;
+  background: #61c396;
 }
 
 .pace-center-atom-lightblue .pace-progress {
@@ -6077,7 +6077,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-center-atom-lightblue .pace-progress::before {
-  background: #3c8dbc;
+  background: #61c396;
   color: #fff;
   font-size: .8rem;
   line-height: .7rem;
@@ -6085,11 +6085,11 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-center-atom-lightblue .pace-activity {
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .pace-center-atom-lightblue .pace-activity::after, .pace-center-atom-lightblue .pace-activity::before {
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .pace-center-circle-lightblue .pace .pace-progress {
@@ -6098,28 +6098,28 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-center-radar-lightblue .pace .pace-activity {
-  border-color: #3c8dbc transparent transparent;
+  border-color: #61c396 transparent transparent;
 }
 
 .pace-center-radar-lightblue .pace .pace-activity::before {
-  border-color: #3c8dbc transparent transparent;
+  border-color: #61c396 transparent transparent;
 }
 
 .pace-center-simple-lightblue .pace {
   background: #fff;
-  border-color: #3c8dbc;
+  border-color: #61c396;
 }
 
 .pace-center-simple-lightblue .pace .pace-progress {
-  background: #3c8dbc;
+  background: #61c396;
 }
 
 .pace-material-lightblue .pace {
-  color: #3c8dbc;
+  color: #61c396;
 }
 
 .pace-corner-indicator-lightblue .pace .pace-activity {
-  background: #3c8dbc;
+  background: #61c396;
 }
 
 .pace-corner-indicator-lightblue .pace .pace-activity::after,
@@ -6142,31 +6142,31 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-flash-lightblue .pace .pace-progress {
-  background: #3c8dbc;
+  background: #61c396;
 }
 
 .pace-flash-lightblue .pace .pace-progress-inner {
-  box-shadow: 0 0 10px #3c8dbc, 0 0 5px #3c8dbc;
+  box-shadow: 0 0 10px #61c396, 0 0 5px #61c396;
 }
 
 .pace-flash-lightblue .pace .pace-activity {
-  border-top-color: #3c8dbc;
-  border-left-color: #3c8dbc;
+  border-top-color: #61c396;
+  border-left-color: #61c396;
 }
 
 .pace-loading-bar-lightblue .pace .pace-progress {
-  background: #3c8dbc;
-  color: #3c8dbc;
+  background: #61c396;
+  color: #61c396;
   box-shadow: 120px 0 #fff, 240px 0 #fff;
 }
 
 .pace-loading-bar-lightblue .pace .pace-activity {
-  box-shadow: inset 0 0 0 2px #3c8dbc, inset 0 0 0 7px #fff;
+  box-shadow: inset 0 0 0 2px #61c396, inset 0 0 0 7px #fff;
 }
 
 .pace-mac-osx-lightblue .pace .pace-progress {
-  background-color: #3c8dbc;
-  box-shadow: inset -1px 0 #3c8dbc, inset 0 -1px #3c8dbc, inset 0 2px rgba(255, 255, 255, 0.5), inset 0 6px rgba(255, 255, 255, 0.3);
+  background-color: #61c396;
+  box-shadow: inset -1px 0 #61c396, inset 0 -1px #61c396, inset 0 2px rgba(255, 255, 255, 0.5), inset 0 6px rgba(255, 255, 255, 0.3);
 }
 
 .pace-mac-osx-lightblue .pace .pace-activity {
@@ -6175,7 +6175,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .pace-progress-color-lightblue .pace-progress {
-  color: #3c8dbc;
+  color: #61c396;
 }
 
 .pace-navy .pace .pace-progress {
@@ -8650,7 +8650,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-lightblue,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-lightblue {
-  background: #3c8dbc;
+  background: #61c396;
   color: #fff;
 }
 
