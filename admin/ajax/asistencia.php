@@ -7,7 +7,8 @@ $asistencia=new Asistencia();
 $codigo_persona=isset($_POST["codigo_persona"])? limpiarCadena($_POST["codigo_persona"]):"";
 $iddepartamento=isset($_POST["iddepartamento"])? limpiarCadena($_POST["iddepartamento"]):"";
 
-
+$idcalendario =isset($_POST["idcalendario"])? limpiarCadena($_POST["idcalendario"]):"";
+$idasistente = isset($_POST["idasistente"])? limpiarCadena($_POST["idasistente"]):"";
 
 switch ($_GET["op"]) {
 	case 'guardaryeditar':
@@ -59,12 +60,14 @@ switch ($_GET["op"]) {
 		while ($reg=$rspta->fetch_object()) {
 			$data[]=array(
 				"0"=>'<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>',
-				"1"=>$reg->codigo_persona,
-				"2"=>$reg->nombre,
-				"3"=>$reg->departamento,
-				"4"=>$reg->fecha_hora,
-				"5"=>$reg->tipo,
-				"6"=>$reg->fecha
+				//"1"=>$reg->idusuario,
+				"1"=>$reg->nombre,
+				"2"=>$reg->descripcion,
+				"3"=>$reg->fechadesde,
+				"4"=>$reg->fechahasta,
+				"5"=>$reg->horasregistro,
+				"6"=>$reg->estado, 
+				"7"=>$reg->nombreasistente
 				);
 		}
 
@@ -132,6 +135,41 @@ switch ($_GET["op"]) {
 		echo json_encode($results);
 
 	break;
+
+	case 'listar_clientes':
+		$fecha_inicio=$_REQUEST["fecha_inicio"];
+		$fecha_fin=$_REQUEST["fecha_fin"];
+		$codigo_persona=$_REQUEST["idcliente"]; 
+			$rspta=$asistencia->listar_clientes($fecha_inicio,$fecha_fin,$codigo_persona);//
+			//declaramos un array
+			$data=Array();
+	
+	//'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.' '.'<button class="btn btn-info btn-xs" onclick="mostrar_clave('.$reg->idusuario.')"><i class="fa fa-key"></i></button>'.' '.'<button class="btn btn-danger btn-xs" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.' '.'<button class="btn btn-info btn-xs" onclick="mostrar_clave('.$reg->idusuario.')"><i class="fa fa-key"></i></button>'.' '.'<button class="btn btn-primary btn-xs" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
+			while ($reg=$rspta->fetch_object()) {
+				$data[]=array(
+					"0"=> '<button class="btn btn-info btn-xs" onclick="asignar_asistente('.$reg->idcalendario.')"><i class="fa fa-pencil-square"></i></button>',
+					//"1"=>$reg->idusuario,
+					"1"=>$reg->nombre,
+					"2"=>$reg->descripcion,
+					"3"=>$reg->fechadesde,
+					"4"=>$reg->fechahasta,
+					"5"=>$reg->horasregistro,
+					"6"=>$reg->estado, 
+					"7"=>$reg->nombreasistente
+					);
+			}
+	
+			$results=array(
+				 "sEcho"=>1,//info para datatables
+				 "iTotalRecords"=>count($data),//enviamos el total de registros al datatable
+				 "iTotalDisplayRecords"=>count($data),//enviamos el total de registros a visualizar
+				 "aaData"=>$data); 
+			echo json_encode($results);
+	
+		break;
+	
+	
+	
 	case 'listar_asistenciau':
     $fecha_inicio=$_REQUEST["fecha_inicio"];
     $fecha_fin=$_REQUEST["fecha_fin"];
@@ -164,12 +202,34 @@ switch ($_GET["op"]) {
 			require_once "../modelos/Usuario.php";
 			$usuario=new Usuario();
 
-			$rspta=$usuario->listar();
+			$rspta=$usuario->listar_clientes();
 
 			while ($reg=$rspta->fetch_object()) {
-				echo '<option value=' . $reg->codigo_persona.'>'.$reg->nombre.' '.$reg->apellidos.'</option>';
+				echo '<option value=' . $reg->idusuario.'>'.$reg->nombre.' '.$reg->apellidos.'</option>';
 			}
 			break;
 
+
+			case 'selectPersona2':
+				require_once "../modelos/Usuario.php";
+				$usuario=new Usuario();
+	
+				$rspta=$usuario->listar_asistente($idcalendario);
+	
+				while ($reg=$rspta->fetch_object()) {
+					echo '<option value=' . $reg->idusuario.'>'.$reg->nombre.' '.$reg->apellidos.'</option>';
+				}
+				break;
+        
+
+		case 'UpdateCalendar':
+			require_once "../modelos/Asistencia.php"; 
+		
+			$rspta=$asistencia->UpdateCalendar($idcalendario,$idasistente);
+			
+			/*while ($reg=$rspta->fetch_object()) {
+				echo '<option value=' . $reg->idusuario.'>'.$reg->nombre.' '.$reg->apellidos.'</option>';
+			}*/
+	    break;
 }
 ?>

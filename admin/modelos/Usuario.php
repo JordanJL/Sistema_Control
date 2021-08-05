@@ -52,7 +52,34 @@ public function listar(){
 	$sql="SELECT * FROM usuarios ORDER BY idtipousuario ";
 	return ejecutarConsulta($sql);
 }
-
+//listar registros
+public function listar_clientes(){
+	$sql="SELECT * FROM usuarios WHERE idtipousuario = 3 ORDER BY idtipousuario ";
+	return ejecutarConsulta($sql);
+}
+//listar registros
+public function listar_asistente($idcalendario){
+	$sql="      SELECT us.*
+	FROM usuarios us 
+	WHERE us.idTipoUsuario = 2  
+	AND  (us.Idusuario NOT IN ( SELECT  IFNULL(ut2.IdAsistenteAsignado , 0 ) 
+		  FROM usuariostransacciones ut2 
+		   WHERE ut2.fechahasta BETWEEN (SELECT ut.fechadesde
+								FROM  usuariostransacciones ut
+								WHERE ut.id= $idcalendario) AND  (SELECT ut.fechahasta
+								FROM  usuariostransacciones ut
+								WHERE ut.id= $idcalendario)) 
+        AND us.Idusuario NOT IN ( SELECT ut2.Idusuario 
+		  FROM usuariostransacciones ut2 
+		   WHERE ut2.fechahasta BETWEEN (SELECT ut.fechadesde
+								FROM  usuariostransacciones ut
+								WHERE ut.id= $idcalendario) AND  (SELECT ut.fechahasta
+								FROM  usuariostransacciones ut
+								WHERE ut.id= $idcalendario)))             
+	
+	";
+	return ejecutarConsulta($sql);
+}
 public function cantidad_usuario(){
 	$sql="SELECT count(*) nombre FROM usuarios";
 	return ejecutarConsulta($sql);
