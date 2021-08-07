@@ -37,7 +37,8 @@ $('.form_datetimedesde').datetimepicker({
     startView: 2,
     forceParse: 0,
     showMeridian: 1,
-    format: 'yyyy/mm/dd hh:ii'
+    format: 'yyyy/mm/dd hh:ii',
+    startDate: '-1d'
 });
 $('.form_datetimehasta').datetimepicker({
     language: 'es',
@@ -48,7 +49,8 @@ $('.form_datetimehasta').datetimepicker({
     startView: 2,
     forceParse: 0,
     showMeridian: 1,
-    format: 'yyyy/mm/dd hh:ii'
+    format: 'yyyy/mm/dd hh:ii',
+    startDate: '-1d'
 });
 </script>
 
@@ -70,11 +72,11 @@ $(function() {
             $(this).data('eventObject', eventObject)
 
             // make the event draggable using jQuery UI
-            $(this).draggable({
+            /*$(this).draggable({
                 zIndex: 1070,
                 revert: true, // will cause the event to go back to its
                 revertDuration: 0 //  original position after the drag
-            })
+            })*/
 
         })
     }
@@ -84,10 +86,10 @@ $(function() {
     /* initialize the calendar
      -----------------------------------------------------------------*/
     //Date for the calendar events (dummy data)
-    var date = new Date()
+    var date = new Date();
     var d = date.getDate(),
         m = date.getMonth(),
-        y = date.getFullYear()
+        y = date.getFullYear();
 
     var Calendar = FullCalendar.Calendar;
     var Draggable = FullCalendar.Draggable;
@@ -124,22 +126,14 @@ $(function() {
                     "title: '".$reg->descripcion."',".
                     "start: '".$reg->fechadesde."',".
                     "end: '".$reg->fechahasta."',".
-                    "backgroundColor: '#f39c12',".
-                    "borderColor: '#f39c12',".
+                    "backgroundColor: '#".$reg->Color."',".
+                    "borderColor: '#".$reg->Color."',".
                     "},";
                    echo $linea;
                 }
             }?>
         ],
         editable: true,
-        droppable: true, // this allows things to be dropped onto the calendar !!!
-        drop: function(info) {
-            // is the "remove after drop" checkbox checked?
-            if (checkbox.checked) {
-                // if so, remove the element from the "Draggable Events" list
-                info.draggedEl.parentNode.removeChild(info.draggedEl);
-            }
-        },
         eventClick: function(info) {
             traerDetalle(info.event.id);
         }

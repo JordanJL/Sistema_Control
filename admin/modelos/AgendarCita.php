@@ -11,16 +11,29 @@ public function __construct(){
 
 //metodo insertar regiustro
 public function insertar($idusuario,$descripcion,$fechadesde,$fechahasta){
-	date_default_timezone_set('America/Mexico_City');
-	$fechacreada=date('Y-m-d H:i:s');
 	$sql="INSERT INTO usuariostransacciones(idusuario,descripcion,fechadesde,fechahasta) ".
           "VALUES ('$idusuario','$descripcion','$fechadesde','$fechahasta')";
 	return ejecutarConsulta($sql);
-	
+}
+
+public function ValidarHoras($idusuario,$fechadesde,$fechahasta){
+	$sql="SELECT SUM(a.horasregistro)+hour(timediff('".$fechadesde."','".$fechahasta."')) < b.tiempo_aprobado as DISPONETIEMPO ".
+		 "FROM usuariostransacciones a ".
+		 "INNER JOIN usuarios b on (a.idusuario = b.idusuario) ".
+		 "where a.idusuario = ". $idusuario .
+		 "and a.fechadesde >= date_add(LAST_DAY(date_add('".$fechadesde."',interval -1 month)), interval 1 day) ".
+		 "and a.fechahasta<= LAST_DAY('".$fechadesde."') ";
+	echo "<script>".$sql."</script>";
+	//$sql="INSERT INTO usuariostransacciones(idusuario,descripcion,fechadesde,fechahasta) VALUES ('$idusuario','$fechadesde','$fechahasta')";
+	return ejecutarConsulta($sql);
 }
 
 public function mostrar($idusuario){
-	$sql="SELECT id,descripcion,fechadesde,fechahasta ".
+	$sql="SELECT id,descripcion,fechadesde,fechahasta,".
+		" case Estado ".
+		"when 'A' then '00ad3a' ".
+		"when 'I' then 'f39c12' ".
+		"else 'e80013' end as Color ".
 		 "FROM usuariostransacciones WHERE idusuario = ".$idusuario." AND DATEDIFF(NOW(),fechadesde) < (select datoInteger from variables where codigo='ClientesHistorialAgenda') ";
 	return ejecutarConsulta($sql);
 }

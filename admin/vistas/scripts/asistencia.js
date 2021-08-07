@@ -3,10 +3,11 @@ var tabla;
 //funcion que se ejecuta al inicio
 function init(){
   // listar();
-      listaru();
-$("#formulario").on("submit",function(e){
-   	guardaryeditar(e);
-   })
+     // listaru();
+	  listarHistorial();
+	$("#formulario").on("submit",function(e){
+		guardaryeditar(e);
+	})
 
     //cargamos los items al select cliente
    $.post("../ajax/asistencia.php?op=selectPersona", function(r){
@@ -44,7 +45,7 @@ function listar(){
 		"order":[[0,"desc"]]//ordenar (columna, orden)
 	}).DataTable();
 }
-
+/*
 function listaru(){
 	tabla=$('#tbllistadou').dataTable({
 		"aProcessing": true,//activamos el procedimiento del datatable
@@ -69,8 +70,33 @@ function listaru(){
 		"iDisplayLength":10,//paginacion
 		"order":[[0,"desc"]]//ordenar (columna, orden)
 	}).DataTable();
-}
+}*/
 
+function listarHistorial(){
+	tabla=$('#tbllistadou').dataTable({
+		"aProcessing": true,//activamos el procedimiento del datatable
+		"aServerSide": true,//paginacion y filrado realizados por el server
+		dom: 'Bfrtip',//definimos los elementos del control de la tabla
+		buttons: [
+                  'copyHtml5',
+                  'excelHtml5',
+                  'csvHtml5',
+                  'pdf'
+		],
+		"ajax":
+		{
+			url:'../ajax/asistencia.php?op=listaHistorial',
+			type: "get",
+			dataType : "json",
+			error:function(e){
+				console.log(e.responseText);
+			}
+		},
+		"bDestroy":true,
+		"iDisplayLength":10,//paginacion
+		"order":[[0,"desc"]]//ordenar (columna, orden)
+	}).DataTable();
+}
 
 
 function listar_asistencia(){
