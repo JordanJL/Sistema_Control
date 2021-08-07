@@ -32,7 +32,7 @@ require_once('../modelos/Usuario.php');
     <a href="asistencia.php" class="small-box-footer">
     <div class="inner">
       <h5 style="font-size: 20px;">
-        <strong>Lista asistencias </strong>
+        <strong>Asignación de asistencias </strong>
       </h5>
       <p>Módulo</p>
     </div>
@@ -79,7 +79,7 @@ require_once('../modelos/Usuario.php');
   <div class="small-box bg-orange">
     <div class="inner">
       <h4 style="font-size: 20px;">
-        <strong>Empleados:   </strong>
+        <strong>Usuarios y Asistentes  </strong>
       </h4>
       <p>Total <?php echo $reg->nombre; ?></p>
     </div>
@@ -97,10 +97,10 @@ require_once('../modelos/Usuario.php');
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
   <div class="small-box bg-aqua">
     
-    <a href="rptasistencia.php" class="small-box-footer">
+    <a href="tipousuario.php" class="small-box-footer">
     <div class="inner">
       <h5 style="font-size: 20px;">
-        <strong>Reporte de asistencias </strong>
+        <strong>Mantenimiento Tipo de Usuario </strong>
       </h5>
       <p>Módulo</p>
     </div>
