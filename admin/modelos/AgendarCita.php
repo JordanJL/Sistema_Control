@@ -17,15 +17,18 @@ public function insertar($idusuario,$descripcion,$fechadesde,$fechahasta){
 }
 
 public function ValidarHoras($idusuario,$fechadesde,$fechahasta){
-	$sql="SELECT SUM(a.horasregistro)+hour(timediff('".$fechadesde."','".$fechahasta."')) < b.tiempo_aprobado as DISPONETIEMPO ".
+	$sql="SELECT SUM(a.horasregistro)+hour(timediff('".$fechadesde."','".$fechahasta."')) < b.tiempo_aprobado as DISPONETIEMPO,SUM(a.horasregistro) As REGISTRADO, ".
+		 "hour(timediff('2021/08/07 09:30','2021/08/26 17:30')) As SOLICITUD, ".
+		 "b.tiempo_aprobado AS Aprobado ".
 		 "FROM usuariostransacciones a ".
 		 "INNER JOIN usuarios b on (a.idusuario = b.idusuario) ".
-		 "where a.idusuario = ". $idusuario .
+		 "where a.idusuario = ". $idusuario . " ".
 		 "and a.fechadesde >= date_add(LAST_DAY(date_add('".$fechadesde."',interval -1 month)), interval 1 day) ".
 		 "and a.fechahasta<= LAST_DAY('".$fechadesde."') ";
-	echo "<script>".$sql."</script>";
+	//echo "<script>console.log(".$sql.");</script>";
 	//$sql="INSERT INTO usuariostransacciones(idusuario,descripcion,fechadesde,fechahasta) VALUES ('$idusuario','$fechadesde','$fechahasta')";
 	return ejecutarConsulta($sql);
+	//return $sql;
 }
 
 public function mostrar($idusuario){

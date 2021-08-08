@@ -51,10 +51,11 @@ function GuardarCita() {
 
       }).done(function (datos) {
         // $("#tablaTareas tbody").empty;
-        alert(datos);
-        if(datos=="N"){
-          echo("No se pudo registrar los datos");
+        //alert(datos);
+        if(datos.substring(0, 1)=="N"){//datos=="N"
+          alert(datos);
         }else{
+          alert(datos);
           document.getElementById("descripcion").value = "";
           document.getElementById("fechahasta").value = "";
           document.getElementById("fechadesde").value = "";
