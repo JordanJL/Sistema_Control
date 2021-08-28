@@ -1,3 +1,8 @@
+$(document).ready(function(){  
+
+  horasAcumuladas();
+ }) 
+
 //console.error('insertando');
 //funcion que se ejecuta al inicio
 function init() {
@@ -30,6 +35,75 @@ function guardaryeditar(e){
     //limpiar();
 }
 */
+  
+function horasAcumuladas(){   
+  var a = $(".fc-toolbar-title").text();
+  
+var separa = a.split(" ");
+var mes = separa[0] ;
+var ano = separa[2] ;  
+var fecha = ano+'-'+ convertir(mes)+'-01';  
+
+if (mes != ""){
+ 
+ 
+      $.ajax({
+        type: 'POST',
+        url: '../ajax/agendarcita.php',
+        data: {
+          key: 'ConsultaHorasAcumuladas',
+          fecha_inicial: fecha 
+        }
+
+      }).done(function (datos) {
+        // $("#tablaTareas tbody").empty;
+        //alert(datos);
+
+        //alert(  datos.substring(21, 1000).replace('"}', "") ); 
+
+          $("#horasAcum").text(datos.substring(21, 1000).replace('"}', ""));
+        
+        // alert("refrescar");
+        //console.error(document.getElementById('fechadesde').value);
+        //$("#tablaTareas tbody").html(datos);
+      }).fail(function (jqXHR, textStatus, errorThrow) {
+        alert("Error al ingresar");
+      });
+
+
+} 
+}  
+
+function convertir(month) {
+  var mes ="";
+  if ( month == "enero"){
+    mes = "01";
+  }else if ( month == "febrero"){
+    mes = "02";
+  }else if ( month == "marzo"){
+    mes = "03";
+  }else if ( month == "abril"){
+    mes = "04";
+  }else if ( month == "mayo"){
+    mes = "05";
+  }else if ( month == "junio"){
+    mes = "06";
+  }else if ( month == "julio"){
+    mes = "07";
+  }else if ( month == "agosto"){
+    mes = "08";
+  }else if ( month == "septiembre"){
+    mes = "09";
+  }else if ( month == "octubre"){
+    mes = "10";
+  }else if ( month == "noviembre"){
+    mes = "11";
+  }else if ( month == "diciembre"){
+    mes = "12";
+  } 
+
+  return mes
+}
 
 function GuardarCita() {
 

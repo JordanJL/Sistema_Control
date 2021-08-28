@@ -60,6 +60,7 @@ $(function() {
     /* initialize the external events
      -----------------------------------------------------------------*/
     function ini_events(ele) {
+        
         ele.each(function() {
 
             // create an Event Object (https://fullcalendar.io/docs/event-object)
@@ -102,7 +103,6 @@ $(function() {
     // -----------------------------------------------------------------
 
 
-
     var calendar = new Calendar(calendarEl, {
         headerToolbar: {
             left: 'prev,next today',
@@ -114,8 +114,8 @@ $(function() {
         events: [
             <?php
             require_once "../modelos/AgendarCita.php";
-            cargarAgenda();
-            function cargarAgenda() {
+            cargarAgenda(); 
+            function cargarAgenda() { 
                 $agendarCita = new AgendarCita();
                 $idusuario = $_SESSION["idusuario"];
                 $rspta = $agendarCita -> mostrar($idusuario);
@@ -131,13 +131,16 @@ $(function() {
                     "},";
                    echo $linea;
                 }
-            }?>
+            }
+            ?>
         ],
         editable: true,
         eventClick: function(info) {
             traerDetalle(info.event.id);
         }
     });
+
+    
     calendar.setOption('locale', 'es');
     calendar.render();
     // $('#calendar').fullCalendar()
@@ -205,5 +208,6 @@ function traerDetalle(id){
 
     
   }
+
 
 </script>

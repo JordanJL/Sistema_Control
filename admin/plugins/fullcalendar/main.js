@@ -4069,11 +4069,11 @@ var FullCalendar = (function (exports) {
             next: 'next',
             prevYear: 'prev year',
             nextYear: 'next year',
-            year: 'year',
-            today: 'today',
-            month: 'month',
-            week: 'week',
-            day: 'day',
+            year: 'año',
+            today: 'Hoy',
+            month: 'mes',
+            week: 'semana',
+            day: 'día',
             list: 'list',
         },
         weekText: 'W',
@@ -4431,7 +4431,7 @@ var FullCalendar = (function (exports) {
         else {
             if (meta.isToday) {
                 classNames.push('fc-day-today');
-                classNames.push(theme.getClass('today'));
+                classNames.push(theme.getClass('Hoy'));
             }
             if (meta.isPast) {
                 classNames.push('fc-day-past');
@@ -4456,7 +4456,7 @@ var FullCalendar = (function (exports) {
         else {
             if (meta.isToday) {
                 classNames.push('fc-slot-today');
-                classNames.push(theme.getClass('today'));
+                classNames.push(theme.getClass('Hoy'));
             }
             if (meta.isPast) {
                 classNames.push('fc-slot-past');
@@ -7574,6 +7574,7 @@ var FullCalendar = (function (exports) {
                 if (buttonName === 'title') {
                     isOnlyButtons = false;
                     children.push(createElement("h2", { className: "fc-toolbar-title" }, props.title));
+                    
                 }
                 else {
                     var ariaAttrs = buttonIcon ? { 'aria-label': buttonName } : {};
@@ -7581,18 +7582,30 @@ var FullCalendar = (function (exports) {
                     if (buttonName === props.activeButton) {
                         buttonClasses.push(theme.getClass('buttonActive'));
                     }
-                    var isDisabled = (!props.isTodayEnabled && buttonName === 'today') ||
+                    var isDisabled = (!props.isTodayEnabled && buttonName === 'Hoy') ||
                         (!props.isPrevEnabled && buttonName === 'prev') ||
                         (!props.isNextEnabled && buttonName === 'next');
                     children.push(createElement("button", __assign({ disabled: isDisabled, className: buttonClasses.join(' '), onClick: buttonClick, type: "button" }, ariaAttrs), buttonText || (buttonIcon ? createElement("span", { className: buttonIcon }) : '')));
+                    
                 }
             }
+
+            if ( _i === 3){
+
+                horasAcumuladas();
+            }
+            
             if (children.length > 1) {
                 var groupClassName = (isOnlyButtons && theme.getClass('buttonGroup')) || '';
                 return createElement.apply(void 0, __spreadArrays(['div', { className: groupClassName }], children));
             }
+            
+
+
             return children[0];
+            
         };
+        
         return ToolbarSection;
     }(BaseComponent));
 
@@ -13924,13 +13937,13 @@ var FullCalendar = (function (exports) {
         root: 'fc-theme-bootstrap',
         table: 'table-bordered',
         tableCellShaded: 'table-active',
-        buttonGroup: 'btn-group',
+        buttonGroup: 'btn-group', 
         button: 'btn btn-primary',
         buttonActive: 'active',
         popover: 'popover',
         popoverHeader: 'popover-header',
         popoverContent: 'popover-body',
-    };
+    }; 
     BootstrapTheme.prototype.baseIconClass = 'fa';
     BootstrapTheme.prototype.iconClasses = {
         close: 'fa-times',
@@ -13939,6 +13952,7 @@ var FullCalendar = (function (exports) {
         prevYear: 'fa-angle-double-left',
         nextYear: 'fa-angle-double-right',
     };
+
     BootstrapTheme.prototype.rtlIconClasses = {
         prev: 'fa-chevron-right',
         next: 'fa-chevron-left',

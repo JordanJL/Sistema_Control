@@ -20,7 +20,11 @@ if (!isset($_SESSION['nombre'])) {
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h1 class="box-title">CALENDARIZACIÓN <br><br><button data-toggle="modal" data-target="#modal-default" class="btn btn-success" id="btnagregar" onclick=""><i class="fa fa-plus-circle"></i>Agregar</button></h1>
+                            <h1 class="box-title">CALENDARIZACIÓN <br><br>
+                            <button data-toggle="modal" data-target="#modal-default" class="btn btn-success" id="btnagregar" onclick=""><i class="fa fa-plus-circle"></i>Agregar</button></h1>
+                            
+                        
+                        <h4 class="modal-title" style="text-align: end;" id="horasAcum"></h4>
                         </div>
 
                         <!-- -------------------------------------------------------------------------------- -->
@@ -69,7 +73,7 @@ if (!isset($_SESSION['nombre'])) {
                                         <h4 class="modal-title">Calendarizar</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        </button> 
                                     </div>
                                     <div class="modal-body">
                                         <div class="row" id="formularioregistros">

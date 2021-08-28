@@ -31,6 +31,22 @@ public function ValidarHoras($idusuario,$fechadesde,$fechahasta){
 	//return $sql;
 }
 
+public function ConsultaHoras($idusuario,$fecha_inicial){
+	$sql="SELECT   CONCAT('Horas acumuladas : ', ifnull((SELECT SUM(ut.horasregistro)
+FROM  usuariostransacciones ut
+WHERE ut.idusuario = us.idusuario 
+and  ut.fechadesde BETWEEN DATE('".$fecha_inicial."') AND DATE(LAST_DAY('".$fecha_inicial."') )),0),' Horas aprobadas : ', IFNULL(us.tiempo_aprobado,0),
+'  Horas restantes : ',IFNULL(us.tiempo_aprobado,0) - IFNULL((SELECT SUM(ut.horasregistro) FROM  usuariostransacciones ut WHERE ut.idusuario = us.idusuario and  ut.fechadesde BETWEEN DATE('".$fecha_inicial."') AND DATE(LAST_DAY('".$fecha_inicial."') )),0))AS horas_acumuladas
+FROM usuarios us
+WHERE us.idusuario =  '". $idusuario ."' 
+	";
+	//return $sql;
+		 return ejecutarConsultaSimpleFila($sql);
+}
+
+
+
+
 public function mostrar($idusuario){
 	$sql="SELECT id,descripcion,fechadesde,fechahasta,".
 		" case Estado ".
