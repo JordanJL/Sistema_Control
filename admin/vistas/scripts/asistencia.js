@@ -166,8 +166,11 @@ function listar_clientes(){
 		$("#getCodeModal2").modal('show');
 		  
 		$("#idcanderio").val(idcalendario);
-
-			$.post("../ajax/asistencia.php?op=selectPersona2",{idcalendario : idcalendario}, function(r){
+		
+		var  fecha_inicio = $("#fecha_inicio").val();
+		var fecha_fin = $("#fecha_fin").val(); 
+		
+			$.post("../ajax/asistencia.php?op=selectPersona2",{idcalendario : idcalendario,fecha_inicio:fecha_inicio, fecha_fin:fecha_fin}, function(r){
 				$("#idasistente").html(r);
 				$('#idasistente').selectpicker('refresh');
 			});

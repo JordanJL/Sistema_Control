@@ -57,9 +57,13 @@ public function listar_clientes(){
 	$sql="SELECT * FROM usuarios WHERE idtipousuario = 3 ORDER BY idtipousuario ";
 	return ejecutarConsulta($sql);
 }
-//listar registros
-public function listar_asistente($idcalendario){
-	$sql="      SELECT us.*
+//listar registros y horas acumuladas
+public function listar_asistente($fecha_inicio,$fecha_fin,$idcalendario){
+
+	$sql="      SELECT  IFNULL((select SUM(ut.horasregistro)
+	from usuariostransacciones ut
+	where ut.fechahasta  BETWEEN CAST('$fecha_inicio' AS DATE)  AND CAST('$fecha_fin' AS DATE) 
+	and  ut.idAsistenteAsignado = us.idusuario ),0) as horas, us.*
 	FROM usuarios us 
 	WHERE us.idTipoUsuario = 2  
 	AND  (us.Idusuario NOT IN ( SELECT  IFNULL(ut2.IdAsistenteAsignado , 0 ) 
@@ -80,6 +84,9 @@ public function listar_asistente($idcalendario){
 	";
 	return ejecutarConsulta($sql);
 }
+ 
+
+
 public function cantidad_usuario(){
 	$sql="SELECT count(*) nombre FROM usuarios";
 	return ejecutarConsulta($sql);

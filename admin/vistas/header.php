@@ -192,8 +192,7 @@ if (strlen(session_id())<1)
                          </ul>
                      </li>
                      <?php } ?>
-                     <?php if ($_SESSION['tipousuario']!='Administrador') {
-?>
+                     <?php if ($_SESSION['tipousuario']!='Administrador') {?>
                      <li class="treeview">
                          <a href="#">
                              <i class="fa fa-folder"></i> <span>Mis Asistencias</span>

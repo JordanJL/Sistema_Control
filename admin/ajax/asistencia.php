@@ -8,6 +8,8 @@ $codigo_persona=isset($_POST["codigo_persona"])? limpiarCadena($_POST["codigo_pe
 $iddepartamento=isset($_POST["iddepartamento"])? limpiarCadena($_POST["iddepartamento"]):"";
 
 $idcalendario =isset($_POST["idcalendario"])? limpiarCadena($_POST["idcalendario"]):"";
+$fecha_inicio =isset($_POST["fecha_inicio"])? limpiarCadena($_POST["fecha_inicio"]):"";
+$fecha_fin =isset($_POST["fecha_fin"])? limpiarCadena($_POST["fecha_fin"]):"";
 $idasistente = isset($_POST["idasistente"])? limpiarCadena($_POST["idasistente"]):"";
 
 switch ($_GET["op"]) {
@@ -238,12 +240,15 @@ switch ($_GET["op"]) {
 
 			case 'selectPersona2':
 				require_once "../modelos/Usuario.php";
-				$usuario=new Usuario();
+				$usuario=new Usuario(); 
 	
-				$rspta=$usuario->listar_asistente($idcalendario);
-	
+				$rspta=$usuario->listar_asistente($fecha_inicio,$fecha_fin,$idcalendario);
+	  
 				while ($reg=$rspta->fetch_object()) {
-					echo '<option value=' . $reg->idusuario.'>'.$reg->nombre.' '.$reg->apellidos.'</option>';
+ 
+					 
+						echo '<option value=' . $reg->idusuario.'>'.$reg->nombre.' '.$reg->apellidos.' -  Horas Acumuladas: '.$reg->horas.'</option>';
+ 				 
 				}
 				break;
         

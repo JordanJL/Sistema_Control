@@ -81,10 +81,15 @@ require 'header.php';
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">Asigna Asistente</h4>
-        </div>
+        </div> 
+
         <div class="modal-body">
+          
+          <br>
   <form action="" name="formularioc" id="formularioc" method="POST">
+
           <div class="form-group">
+
             <label for="recipient-name" class="col-form-label">Asistente Disponible:  </label>
             <input class="form-control" type="hidden" name="idcanderio" id="idcanderio"> 
             <select name="idasistente" id="idasistente" class="form-control selectpicker" data-live-search="true" required>
