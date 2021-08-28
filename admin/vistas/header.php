@@ -203,7 +203,7 @@ if (strlen(session_id())<1)
                          </a>
                          <ul class="treeview-menu">
                              <li><a href="asistenciau.php"><i class="fa fa-circle-o"></i> Asistencia</a></li>
-                             <li><a href="agendarcita.php"><i class="fa fa-circle-o"></i> Agendar Cita</a></li>
+                             <li><a href="agendarcita.php"><i class="fa fa-circle-o"></i> Calendarizaciones</a></li>
                              <li><a href="rptasistenciau.php"><i class="fa fa-circle-o"></i> Reportes</a></li>
 
                          </ul>
