@@ -166,7 +166,7 @@ function listar_clientes(){
 		$("#getCodeModal2").modal('show');
 		  
 		$("#idcanderio").val(idcalendario);
-		
+		 
 		var  fecha_inicio = $("#fecha_inicio").val();
 		var fecha_fin = $("#fecha_fin").val(); 
 		

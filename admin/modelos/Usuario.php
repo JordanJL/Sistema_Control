@@ -60,27 +60,27 @@ public function listar_clientes(){
 //listar registros y horas acumuladas
 public function listar_asistente($fecha_inicio,$fecha_fin,$idcalendario){
 
-	$sql="      SELECT  IFNULL((select SUM(ut.horasregistro)
-	from usuariostransacciones ut
-	where ut.fechahasta  BETWEEN CAST('$fecha_inicio' AS DATE)  AND CAST('$fecha_fin' AS DATE) 
-	and  ut.idAsistenteAsignado = us.idusuario ),0) as horas, us.*
-	FROM usuarios us 
-	WHERE us.idTipoUsuario = 2  
-	AND  (us.Idusuario NOT IN ( SELECT  IFNULL(ut2.IdAsistenteAsignado , 0 ) 
-		  FROM usuariostransacciones ut2 
-		   WHERE ut2.fechahasta BETWEEN (SELECT ut.fechadesde
-								FROM  usuariostransacciones ut
-								WHERE ut.id= $idcalendario) AND  (SELECT ut.fechahasta
-								FROM  usuariostransacciones ut
-								WHERE ut.id= $idcalendario)) 
-        AND us.Idusuario NOT IN ( SELECT ut2.Idusuario 
-		  FROM usuariostransacciones ut2 
-		   WHERE ut2.fechahasta BETWEEN (SELECT ut.fechadesde
-								FROM  usuariostransacciones ut
-								WHERE ut.id= $idcalendario) AND  (SELECT ut.fechahasta
-								FROM  usuariostransacciones ut
-								WHERE ut.id= $idcalendario)))             
-	
+	$sql="   SELECT IFNULL((select SUM(ut.horasregistro)
+		from usuariostransacciones ut
+		where ut.fechahasta  BETWEEN CAST(DATE_SUB('$fecha_inicio',INTERVAL DAYOFMONTH('$fecha_inicio')-1 DAY) AS DATE)  AND CAST(LAST_DAY('$fecha_fin') AS DATE) 
+		and  ut.idAsistenteAsignado = us.idusuario ),0) as horas, us.*
+		FROM usuarios us 
+		WHERE us.idTipoUsuario = 2  
+		AND  (us.Idusuario NOT IN (
+	SELECT ut.idusuario
+	FROM  usuariostransacciones ut
+	INNER JOIN usuarios us on us.idusuario = ut.idusuario
+	WHERE  us.idtipousuario = 2
+	AND ut.fechadesde BETWEEN  (
+	SELECT ut2.fechadesde
+	FROM usuariostransacciones ut2						
+	where id = '".$idcalendario."'
+	)
+	and   (
+	SELECT ut2.fechahasta
+	FROM usuariostransacciones ut2						
+	where id ='".$idcalendario."'
+	)))        
 	";
 	return ejecutarConsulta($sql);
 }
