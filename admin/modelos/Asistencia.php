@@ -58,6 +58,24 @@ public function listar_Historial($idusuario){
 	return ejecutarConsulta($sql);
 }
 
+public function listar_Historial_asistente($idusuario){
+	$sql=" SELECT a.descripcion,a.fechadesde,a.fechahasta,a.horasregistro,case a.Estado when 'A' then 'Asignado' else 'Ingresado' end as Estado, 
+	 case when isnull(a.idAsistenteAsignado) then 'No Asignado' else concat(b.nombre,' ',b.apellidos) end as Asistente  
+	 FROM usuariostransacciones a left join usuarios b on (a.idusuario = b.idusuario)  
+	 where a.idAsistenteAsignado = '$idusuario' 
+	 AND DATEDIFF(NOW(),a.fechahasta) < (select datoInteger from variables where codigo='ClientesHistorial')
+	 ORDER BY a.fechahasta DESC";
+	return ejecutarConsulta($sql);
+}
+
+
+public function verificarUsuario($idusuario){
+	$sql="  SELECT u.idtipousuario
+    FROM  usuarios u  
+    WHERE u.idusuario= '$idusuario'";
+	return ejecutarConsulta($sql);
+}
+
 public function listar_Historial_Fechas($idusuario,$fechadesde,$fechahasta){
 	$sql="SELECT a.descripcion,a.fechadesde,a.fechahasta,a.horasregistro,case a.Estado when 'A' then 'Asignado' else 'Ingresado' end as Estado, ".
 		"case when isnull(a.idAsistenteAsignado) then 'No Asignado' else concat(b.nombre,' ',b.apellidos) end as Asistente ".

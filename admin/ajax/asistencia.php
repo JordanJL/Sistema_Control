@@ -108,9 +108,20 @@ switch ($_GET["op"]) {
              "aaData"=>$data); 
 		echo json_encode($results);
 
+
 		case 'listaHistorial':
 			$idusuario=$_SESSION["idusuario"];
-				$rspta=$asistencia->listar_Historial($idusuario);
+
+			$rspta2=$asistencia->verificarUsuario($idusuario);
+
+			while ($reg=$rspta2->fetch_object()) {
+			  /*echo '<script>';
+			echo 'console.log('. $reg->idtipousuario .')';
+			echo '</script>'; */
+			  
+			if($reg->idtipousuario == 2 ){
+
+				$rspta=$asistencia->listar_Historial_asistente($idusuario);
 				//declaramos un array
 				$data=Array();
 		
@@ -131,7 +142,43 @@ switch ($_GET["op"]) {
 					 "sEcho"=>1,//info para datatables
 					 "iTotalRecords"=>count($data),//enviamos el total de registros al datatable
 					 "iTotalDisplayRecords"=>count($data),//enviamos el total de registros a visualizar
-					 "aaData"=>$data); 
+					 "aaData"=>$data);  
+
+
+
+				}else if ($reg->idtipousuario==  3 ) {
+
+					
+
+			$rspta=$asistencia->listar_Historial($idusuario);
+			//declaramos un array
+			$data=Array();
+	
+	
+			while ($reg=$rspta->fetch_object()) {
+				$data[]=array(
+					//"0"=>'<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>',
+					"0"=>$reg->descripcion,
+					"1"=>$reg->fechadesde,
+					"2"=>$reg->fechahasta,
+					"3"=>$reg->horasregistro,
+					"4"=>$reg->Estado,
+					"5"=>$reg->Asistente
+					);
+			}
+	
+			$results=array(
+				 "sEcho"=>1,//info para datatables
+				 "iTotalRecords"=>count($data),//enviamos el total de registros al datatable
+				 "iTotalDisplayRecords"=>count($data),//enviamos el total de registros a visualizar
+				 "aaData"=>$data);  
+
+				}
+
+			}
+
+			
+			
 				echo json_encode($results);
 
 	break;
