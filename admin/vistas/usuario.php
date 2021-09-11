@@ -97,6 +97,12 @@ require 'header.php';
       <label for="">Tiempo Asignado:</label> 
       <input class="form-control" type="number" name="tiempo_aprobado" id="tiempo_aprobado" maxlength="64" placeholder="tiempo min">
     </div>
+    
+    <div class="form-group col-lg-6 col-md-6 col-xs-12" >
+      <label for="">Monto Asistente:</label> 
+      <input class="form-control" type="number" name="monto_asistente" id="monto_asistente" maxlength="64" placeholder="Monto X Hora">
+    </div>
+
     <div class="form-group col-lg-6 col-md-6 col-xs-12">
       <label for="">Imagen:</label>
       <input class="form-control filestyle" data-buttonText="Seleccionar foto" type="file" name="imagen" id="imagen">

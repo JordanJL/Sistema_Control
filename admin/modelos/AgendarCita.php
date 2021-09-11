@@ -17,14 +17,31 @@ public function insertar($idusuario,$descripcion,$fechadesde,$fechahasta){
 }
 
 public function ValidarHoras($idusuario,$fechadesde,$fechahasta){
-	$sql="SELECT SUM(a.horasregistro)+hour(timediff('".$fechadesde."','".$fechahasta."')) < b.tiempo_aprobado as DISPONETIEMPO,SUM(a.horasregistro) As REGISTRADO, ".
-		 "hour(timediff('2021/08/07 09:30','2021/08/26 17:30')) As SOLICITUD, ".
-		 "b.tiempo_aprobado AS Aprobado ".
-		 "FROM usuariostransacciones a ".
-		 "INNER JOIN usuarios b on (a.idusuario = b.idusuario) ".
-		 "where a.idusuario = ". $idusuario . " ".
-		 "and a.fechadesde >= date_add(LAST_DAY(date_add('".$fechadesde."',interval -1 month)), interval 1 day) ".
-		 "and a.fechahasta<= LAST_DAY('".$fechadesde."') ";
+	$sql="          SELECT ifnull((SELECT SUM(ut.horasregistro)
+	FROM  usuariostransacciones ut 
+	WHERE ut.idusuario = usu.idusuario
+	and  ut.fechadesde >= date_add(LAST_DAY(date_add('".$fechadesde."',interval -1 month)), interval 1 day) 
+and ut.fechahasta<= LAST_DAY('".$fechahasta."') ),0)+hour(timediff('".$fechadesde."','".$fechahasta."')) <= usu.tiempo_aprobado as DISPONETIEMPO ,
+ifnull((SELECT SUM(ut.horasregistro)
+	FROM  usuariostransacciones ut 
+	WHERE ut.idusuario = usu.idusuario
+	and  ut.fechadesde >= date_add(LAST_DAY(date_add('".$fechadesde."',interval -1 month)), interval 1 day) 
+and ut.fechahasta<= LAST_DAY('".$fechadesde."') ),0) As REGISTRADO, 
+usu.tiempo_aprobado  ,
+hour(timediff('".$fechadesde."','".$fechahasta."')) As SOLICITUD , 
+ifnull(usu.tiempo_aprobado,0) AS Aprobado 
+FROM  usuarios usu 
+WHERE usu.idusuario =". $idusuario . " ";
+	
+	
+	//SELECT SUM(a.horasregistro)+hour(timediff('".$fechadesde."','".$fechahasta."')) < b.tiempo_aprobado as DISPONETIEMPO,SUM(a.horasregistro) As REGISTRADO, ".
+	//	"hour(timediff('".$fechadesde."','".$fechahasta."')) As SOLICITUD, ".
+	//	 "b.tiempo_aprobado AS Aprobado ".
+	//	 "FROM usuariostransacciones a ".
+	//	 "INNER JOIN usuarios b on (a.idusuario = b.idusuario) ".
+	//	 "where a.idusuario = ". $idusuario . " ".
+	//	 "and a.fechadesde >= date_add(LAST_DAY(date_add('".$fechadesde."',interval -1 month)), interval 1 day) ".
+	//	 "and a.fechahasta<= LAST_DAY('".$fechadesde."') ";
 	//echo "<script>console.log(".$sql.");</script>";
 	//$sql="INSERT INTO usuariostransacciones(idusuario,descripcion,fechadesde,fechahasta) VALUES ('$idusuario','$fechadesde','$fechahasta')";
 	return ejecutarConsulta($sql);

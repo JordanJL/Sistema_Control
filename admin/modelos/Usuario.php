@@ -10,16 +10,16 @@ public function __construct(){
 }
 
 //metodo insertar regiustro
-public function insertar($nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$clavehash,$imagen,$usuariocreado,$codigo_persona,$tiempo_aprobado){
+public function insertar($nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$clavehash,$imagen,$usuariocreado,$codigo_persona,$tiempo_aprobado,$monto_asistente){
 	date_default_timezone_set('America/Mexico_City');
 	$fechacreado=date('Y-m-d H:i:s');
-	$sql="INSERT INTO usuarios (nombre,apellidos,login,iddepartamento,idtipousuario,email,password,imagen,estado,fechacreado,usuariocreado,codigo_persona,tiempo_aprobado) VALUES ('$nombre','$apellidos','$login','$iddepartamento','$idtipousuario','$email','$clavehash','$imagen','1','$fechacreado','$usuariocreado','$codigo_persona','$tiempo_aprobado')";
+	$sql="INSERT INTO usuarios (nombre,apellidos,login,iddepartamento,idtipousuario,email,password,imagen,estado,fechacreado,usuariocreado,codigo_persona,tiempo_aprobado,monto_asistente) VALUES ('$nombre','$apellidos','$login','$iddepartamento','$idtipousuario','$email','$clavehash','$imagen','1','$fechacreado','$usuariocreado','$codigo_persona','$tiempo_aprobado','$monto_asistente')";
 	return ejecutarConsulta($sql);
 
 }
 
-public function editar($idusuario,$nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$imagen,$usuariocreado,$codigo_persona,$tiempo_aprobado){
-	$sql="UPDATE usuarios SET nombre='$nombre',apellidos='$apellidos',login='$login',iddepartamento='$iddepartamento',idtipousuario='$idtipousuario',email='$email',imagen='$imagen' ,usuariocreado='$usuariocreado',codigo_persona='$codigo_persona',tiempo_aprobado='$tiempo_aprobado'  
+public function editar($idusuario,$nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$email,$imagen,$usuariocreado,$codigo_persona,$tiempo_aprobado,$monto_asistente){
+	$sql="UPDATE usuarios SET nombre='$nombre',apellidos='$apellidos',login='$login',iddepartamento='$iddepartamento',idtipousuario='$idtipousuario',email='$email',imagen='$imagen' ,usuariocreado='$usuariocreado',codigo_persona='$codigo_persona',tiempo_aprobado='$tiempo_aprobado',monto_asistente='$monto_asistente'  
 	WHERE idusuario='$idusuario'";
 	 return ejecutarConsulta($sql);
 

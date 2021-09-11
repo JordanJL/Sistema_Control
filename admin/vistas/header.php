@@ -40,7 +40,7 @@ if (strlen(session_id())<1)
 
      <!-- daterange picker -->
      <!--<link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css"> -->
-     <link href="../plugins/Datetime/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+     <link href="../plugins/datetime/bootstrap-datetimepicker.min.css" rel="stylesheet" >
 
      <!-- fullCalendar -->
      <link rel="stylesheet" href="../plugins/moment/moment.min.js">
@@ -162,10 +162,8 @@ if (strlen(session_id())<1)
                              <li><a href="tipousuario.php"><i class="fa fa-circle-o"></i> Tipo Usuario</a></li>
                           <!--  <li><a href="departamento.php"><i class="fa fa-circle-o"></i> Departamento</a></li>-->
                          </ul>
-                     </li>
 
-                     
-
+                     </li> 
                         <!-- <li class="treeview">
                          <a href="#">
                              <i class="fa fa-folder"></i> <span>Departamento</span>
@@ -191,6 +189,21 @@ if (strlen(session_id())<1)
 
                          </ul>
                      </li>
+
+                     <li class="treeview">
+                         <a href="#">
+                             <i class="fa fa-folder"></i> <span>Desembolso Asistente</span>
+                             <span class="pull-right-container">
+                                 <i class="fa fa-angle-left pull-right"></i>
+                             </span>
+                         </a>
+                         <ul class="treeview-menu"> 
+                             <li><a href="pagoAsistente.php"><i class="fa fa-circle-o"></i>Estado Asistente</a></li>
+                          <!--  <li><a href="departamento.php"><i class="fa fa-circle-o"></i> Departamento</a></li>-->
+                         </ul>
+                         
+                     </li>
+
                      <?php } ?>
                      <?php if ($_SESSION['tipousuario']!='Administrador') {?>
                      <li class="treeview">

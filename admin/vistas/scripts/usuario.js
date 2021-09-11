@@ -117,8 +117,7 @@ function listar(){
 function guardaryeditar(e){
      e.preventDefault();//no se activara la accion predeterminada 
      $("#btnGuardar").prop("disabled",true);
-     var formData=new FormData($("#formulario")[0]);
-	alert(formData[0])
+     var formData=new FormData($("#formulario")[0]); 
      $.ajax({
      	url: "../ajax/usuario.php?op=guardaryeditar",
      	type: "POST",
