@@ -23,16 +23,17 @@ if ($_POST['key']=='GuardarCita'){
 
 }
 
+if ($_POST['key']=='BorrarCita'){
+    $idusuario=$_SESSION["idusuario"];
+    $idCita = $_POST['idCIta'];
+    $rspta=$agendarCita->eliminar($idCita);
+    echo $rspta ? "Cita eliminada correctamente" : "N";
+}
 
 if ($_POST['key']=='ConsultaHorasAcumuladas'){
     $idusuario=$_SESSION["idusuario"];
-    
     $rspta=$agendarCita->ConsultaHoras($idusuario,$_POST['fecha_inicial']);
-     
      echo json_encode( $rspta);
-
-    //$rspta->DISPONETIEMPO; 
-
 }
  
 

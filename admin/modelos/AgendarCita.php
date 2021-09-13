@@ -16,6 +16,12 @@ public function insertar($idusuario,$descripcion,$fechadesde,$fechahasta){
 	return ejecutarConsulta($sql);
 }
 
+//metodo insertar regiustro
+public function Eliminar($idCita){
+	$sql="DELETE FROM usuariostransacciones WHERE id = ".$idCita;
+	return ejecutarConsulta($sql);
+}
+
 public function ValidarHoras($idusuario,$fechadesde,$fechahasta){
 	$sql="          SELECT ifnull((SELECT SUM(ut.horasregistro)
 	FROM  usuariostransacciones ut 
@@ -60,9 +66,6 @@ WHERE us.idusuario =  '". $idusuario ."'
 	//return $sql;
 		 return ejecutarConsultaSimpleFila($sql);
 }
-
-
-
 
 public function mostrar($idusuario){
 	$sql="SELECT id,descripcion,fechadesde,fechahasta,".

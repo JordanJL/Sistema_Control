@@ -200,7 +200,7 @@ function traerDetalle(id){
         document.getElementById("Modalfechadesde").value = mydata.fechadesde;
         document.getElementById("ModalAsistente").value = mydata.Asistente;  
         document.getElementById("ModalHoras").value = mydata.Horas;
-        
+        document.getElementById("CitaID").value = mydata.id;
         $('#modal-verdetalle').modal('show');
     }).fail(function (jqXHR, textStatus, errorThrow){
       alert("Error al ingresar");

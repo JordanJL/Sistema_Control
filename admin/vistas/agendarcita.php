@@ -171,10 +171,15 @@ if (!isset($_SESSION['nombre'])) {
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <input class="form-control" size="16" type="text" value="" name="CitaID" id="CitaID" style="display: none;">
 
                                     </div>
+                                    <div class="modal-footer justify-content-between" id="eliminarCita" name="eliminarCita" style="text-align: center; display:none;background-color: #a9a9a961;">
+                                        Realmente desea eliminar la cita?
+                                        <button type="button" class="btn btn-default" onclick="CancelarCita()">Eliminar cita</button>
+                                    </div>
                                     <div class="modal-footer justify-content-between">
+                                        <button type="button" id="confirmar" name="confirmar" class="btn btn-default" onclick="ConfirmarCancelar()">Eliminar cita</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>

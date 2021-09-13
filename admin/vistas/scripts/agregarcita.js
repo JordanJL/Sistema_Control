@@ -105,6 +105,52 @@ function convertir(month) {
   return mes
 }
 
+function ConfirmarCancelar(){
+  var intro = document.getElementById('confirmar');
+  intro.style.display = "none";
+
+  var intro2 = document.getElementById('eliminarCita');
+  intro2.style.display = "revert";
+
+}
+
+function CancelarCita() {
+  var idCIta = document.getElementById("CitaID").value;
+
+  if (idCIta != "") {
+      $.ajax({
+        type: 'POST',
+        url: '../ajax/agendarcita.php',
+        data: {
+          key: 'BorrarCita',
+          idCIta: document.getElementById('CitaID').value
+        }
+
+      }).done(function (datos) {
+        // $("#tablaTareas tbody").empty;
+        //alert(datos);
+        if(datos.substring(0, 1)=="N"){//datos=="N"
+          alert(datos);
+        }else{
+          alert(datos);
+          document.getElementById("descripcion").value = "";
+          document.getElementById("fechahasta").value = "";
+          document.getElementById("fechadesde").value = "";
+          document.getElementById("CitaID").value = "";
+          $('#modal-default').modal('hide');
+          location.reload();
+        }
+        // alert("refrescar");
+        //console.error(document.getElementById('fechadesde').value);
+        //$("#tablaTareas tbody").html(datos);
+      }).fail(function (jqXHR, textStatus, errorThrow) {
+        alert("Error al ingresar");
+      });
+  } else {
+    alert("Llenar los datos requeridos descripción, fecha desde, fecha hasta");
+  }
+}
+
 function GuardarCita() {
 
   var a = document.getElementById('descripcion').value;
