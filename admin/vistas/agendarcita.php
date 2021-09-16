@@ -175,7 +175,7 @@ if (!isset($_SESSION['nombre'])) {
 
                                     </div>
                                     <div class="modal-footer justify-content-between" id="eliminarCita" name="eliminarCita" style="text-align: center; display:none;background-color: #a9a9a961;">
-                                        Realmente desea eliminar la cita?
+                                        Realmente desea eliminar?
                                         <button type="button" class="btn btn-default" onclick="CancelarCita()">Eliminar</button>
                                     </div>
                                     <div class="modal-footer justify-content-between">

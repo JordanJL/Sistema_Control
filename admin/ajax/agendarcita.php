@@ -27,7 +27,7 @@ if ($_POST['key']=='BorrarCita'){
     $idusuario=$_SESSION["idusuario"];
     $idCita = $_POST['idCIta'];
     $rspta=$agendarCita->eliminar($idCita);
-    echo $rspta ? "Cita eliminada correctamente" : "N";
+    echo $rspta ? "Eliminado correctamente" : "N";
 }
 
 if ($_POST['key']=='ConsultaHorasAcumuladas'){
