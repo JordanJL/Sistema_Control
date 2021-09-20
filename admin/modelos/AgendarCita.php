@@ -68,7 +68,7 @@ WHERE us.idusuario =  '". $idusuario ."'
 }
 
 public function mostrar($idusuario){
-	$sql="SELECT id,descripcion,fechadesde,fechahasta,".
+	$sql="SELECT id, REPLACE(descripcion,'\n',' ') as descripcion,fechadesde,fechahasta,".
 		" case Estado ".
 		"when 'A' then '00ad3a' ".
 		"when 'I' then 'f39c12' ".

@@ -128,7 +128,7 @@ $(function() {
                     "end: '".$reg->fechahasta."',".
                     "backgroundColor: '#".$reg->Color."',".
                     "borderColor: '#".$reg->Color."',".
-                    "},";
+                    "},\n";
                    echo $linea;
                 }
             }
